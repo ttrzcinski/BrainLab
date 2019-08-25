@@ -1,4 +1,4 @@
-package com.ttrzcinski;
+package com.ttrzcinski.interfaces;
 
 /**
  * Pattern for creating classes faster with control of it's number.

@@ -1,5 +1,6 @@
 package com.ttrzcinski;
 
+import com.ttrzcinski.interfaces.Shop;
 import com.ttrzcinski.utils.FileAssurer;
 import com.ttrzcinski.utils.ConsoleOutput;
 import com.ttrzcinski.utils.FileDigger;
@@ -39,17 +40,17 @@ public class BrainShop extends ConsoleOutput implements Shop<Brain> {
 
     @Override
     public boolean saveCurrent() {
-        //TODO DO THE OUPUT TO FILE OR DB OR SERVICE
+        // TODO DO THE OUTPUT TO FILE OR DB OR SERVICE
         return false;
     }
 
     @Override
     public Brain LoadTheNewest() {
-        //TODO DO THE INPUT FROM FILE OR DB OR SERVICE
+        // TODO DO THE INPUT FROM FILE OR DB OR SERVICE
 
         String fileName = "brainZero.txt";
 
-        //read file into stream, try-with-resources
+        // read file into stream, try-with-resources
         try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
             stream.forEach(System.out::println);
         } catch (IOException e) {
@@ -75,7 +76,7 @@ public class BrainShop extends ConsoleOutput implements Shop<Brain> {
      * Extracts all the files and catalogs from given path, if path is right.
      */
     private void extractFile() {
-        //
+        // 
         File[] files = new FileDigger().digFile(DEFAULT_REPO_PATH);
         //
         this.assureNotNullPool();
@@ -84,7 +85,7 @@ public class BrainShop extends ConsoleOutput implements Shop<Brain> {
     }
 
     private void assurePresenceOfRepo() {
-        //Assures a file
+        // Assures a file
         new FileAssurer().assurePresenceOfRepo(DEFAULT_REPO_PATH);
     }
 }

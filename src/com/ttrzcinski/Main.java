@@ -8,10 +8,13 @@ import java.util.stream.Collectors;
 
 public class Main {
 
+    /**
+     * Kept instance of brain to process.
+     */
     private static Brain brain;
 
     public static void main(String[] args) {
-        //Show all the inputed params
+        // Show all the inputted params
         List<String> result = Arrays.asList(args).stream()
                 .filter(s->s.startsWith("-"))
                 .collect(Collectors.toList());
@@ -24,17 +27,19 @@ public class Main {
 
         if (consoleHelp) {
             System.out.println("Known args:");
-            System.out.println("outputEverything - output eveything to the console.");
+            System.out.println("outputEverything - output everything to the console.");
             System.out.println("?                - Shows help in console.");
             return;
         }
-        //Shows argas in the console
-        result.forEach(item->System.out.println("I got an arg: " + item));
-        if (consoleVerbose) System.out.println("Creating the brain shop");
-        //Create the BrainShop
+        // Shows args in the console
+        result.forEach(item -> System.out.println("I got an arg: " + item));
+        if (consoleVerbose) {
+            System.out.println("Creating the brain shop");
+        }
+        // Create the BrainShop
         BrainShop brainShop = new BrainShop();
 
-        //Create new brain
+        // Create new brain
         Main.brain = brainShop.createNew();
     }
 }
